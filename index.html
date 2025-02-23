@@ -39,30 +39,6 @@
                 placeholder="Origin"
               />
               <label for="origin" class="search__input_label">From</label>
-              <div class="search-modal search-modal__cities">
-                <h4>Selected city</h4>
-                <div class="search-modal__city">
-                  <div class="search-modal__city_name">Warsaw</div>
-                  <div class="search-modal__city_code">WAW</div>
-                </div>
-                <h4>Сlosest airports</h4>
-                <div class="search-modal__city">
-                  <div class="search-modal__city_name">Warsaw</div>
-                  <div class="search-modal__city_code">WAW</div>
-                </div>
-                <div class="search-modal__city">
-                  <div class="search-modal__city_name">London</div>
-                  <div class="search-modal__city_code">LON</div>
-                </div>
-                <div class="search-modal__city">
-                  <div class="search-modal__city_name">Paris</div>
-                  <div class="search-modal__city_code">PAR</div>
-                </div>
-                <div class="search-modal__city">
-                  <div class="search-modal__city_name">Kyiv</div>
-                  <div class="search-modal__city_code">IEV</div>
-                </div>
-              </div>
             </div>
             <div class="search__input city_to">
               <input
@@ -72,48 +48,41 @@
                 placeholder="Destination"
               />
               <label for="destination" class="search__input_label">To</label>
-              <div class="search-modal search-modal__cities">
-                <h4>Сlosest airports</h4>
-                <div class="search-modal__city">
-                  <div class="search-modal__city_name">Warsaw</div>
-                  <div class="search-modal__city_code">WAW</div>
-                </div>
-                <div class="search-modal__city">
-                  <div class="search-modal__city_name">London</div>
-                  <div class="search-modal__city_code">LON</div>
-                </div>
-                <div class="search-modal__city">
-                  <div class="search-modal__city_name">Paris</div>
-                  <div class="search-modal__city_code">PAR</div>
-                </div>
-                <div class="search-modal__city">
-                  <div class="search-modal__city_name">Kyiv</div>
-                  <div class="search-modal__city_code">IEV</div>
-                </div>
-              </div>
             </div>
-            <div class="search__input_calender">
+            <div class="search-modal search-modal__cities hidden"></div>
+            <div class="search__input_calendar">
               <div class="search__input date_dep">
                 <input
-                  type="date"
+                  type="text"
                   id="departure"
                   name="departure"
                   placeholder="Departure"
+                  readonly
                 />
                 <label for="departure" class="search__input_label"
                   >Departure</label
                 >
               </div>
+              <div class="divider_vertical"></div>
               <div class="search__input date_ret">
                 <input
-                  type="date"
+                  type="text"
                   id="return"
                   name="return"
                   placeholder="Return"
+                  readonly
                 />
                 <label for="return" class="search__input_label">Return</label>
               </div>
-              <div class="search-modal search-modal__date"></div>
+              <div class="search-modal search-modal__date topAnimation">
+                <div class="search-modal__date_pages">
+                  <button class="pages__btn" id="prev"><</button>
+                  <div class="month_name" id="month"></div>
+                  <button class="pages__btn" id="next">></button>
+                </div>
+                <div class="search-modal__date_week" id="daysTitle"></div>
+                <div class="search-modal__date_days" id="days"></div>
+              </div>
             </div>
             <div class="search__input search__input_pass-class">
               <input
@@ -127,51 +96,8 @@
               <label for="pass-class" class="search__input_label"
                 >Passengers and class</label
               >
-              <div class="search-modal search-modal__pass-class">
-                <span>Maximum 9 Passengers</span>
-                <div class="search-modal__pass">
-                  <div class="search-modal__pass_descr">
-                    <h4>Adults</h4>
-                    <span>over 12 years old</span>
-                  </div>
-                  <div class="counter__wrapper">
-                    <button class="counter__control">-</button>
-                    <div class="counter__current">1</div>
-                    <button class="counter__control">+</button>
-                  </div>
-                </div>
-                <div class="search-modal__pass">
-                  <div class="search-modal__pass_descr">
-                    <h4>Children</h4>
-                    <span>2-12 years old</span>
-                  </div>
-                  <div class="counter__wrapper">
-                    <button class="counter__control">-</button>
-                    <div class="counter__current">0</div>
-                    <button class="counter__control">+</button>
-                  </div>
-                </div>
-                <div class="search-modal__pass">
-                  <div class="search-modal__pass_descr">
-                    <h4>Infants</h4>
-                    <span>under 2 years old</span>
-                  </div>
-                  <div class="counter__wrapper">
-                    <button class="counter__control">-</button>
-                    <div class="counter__current">0</div>
-                    <button class="counter__control">+</button>
-                  </div>
-                </div>
-                <div class="search-modal__divider"></div>
-                <h4 class="search-modal__class_header">Class</h4>
-                <div class="search-modal__classes">
-                  <button class="search-modal__class_btn active">Any</button>
-                  <button class="search-modal__class_btn">Business</button>
-                  <button class="search-modal__class_btn">Economy</button>
-                </div>
-                <button class="search-modal__accept_btn">Confirm</button>
-              </div>
             </div>
+            <div class="search-modal search-modal__pass-class"></div>
           </div>
           <button class="search__btn">Search</button>
         </div>
@@ -221,52 +147,108 @@
     <section class="recommendation">
       <div class="container">
         <div class="rcmd__wrapper">
-          <div class="rcmd__box rcmd__box_dest">
+          <div class="rcmd__box box_w70">
             <h3>Popular destinations</h3>
             <div class="rcmd__box_wrapper rcmd__box_wrapper_dest"></div>
           </div>
-          <div class="rcmd__box rcmd__box_comp">
+          <div class="rcmd__box box_w30">
             <h3>TOP-10 Airlines</h3>
-            <div class="rcmd__box_wrapper rcmd__box_wrapper_comp">
-              <div class="rcmd__item rcmd__item_comp">
-                <a href="#" class="rcmd__item_name">Emirates</a>
-                <div class="rcmd__item_rate">4.7</div>
+            <div class="rcmd__box_wrapper rcmd__box_wrapper_comp"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="helpful-info">
+      <div class="container">
+        <div class="helpful-info__wrapper">
+          <div class="helpful-info__box box_w70">
+            <h3>Hot airfare deals</h3>
+            <div class="helpful-info__item">
+              <div class="helpful-info__descr">
+                <h4 class="helpful-info__descr_header">
+                  How to find discount airline tickets online
+                </h4>
+                <div class="helpful-info__descr_text">
+                  On our website you can buy airline tickets or make an early
+                  booking. Promotions, discounts and special offers that are
+                  constantly offered by leading low-cost airlines allow you to
+                  buy cheap airline tickets without leaving home. If you want to
+                  save money and buy cheaper air tickets, pay attention to
+                  flights with connections. But time as a precious currency for
+                  a traveler - direct flights help to save, even if they cost
+                  more than connecting tickets.
+                </div>
               </div>
-              <div class="rcmd__item rcmd__item_comp">
-                <a href="#" class="rcmd__item_name">Qatar Airways</a>
-                <div class="rcmd__item_rate">4.7</div>
+              <div class="helpful-info__descr">
+                <h4 class="helpful-info__descr_header">Customer support</h4>
+                <div class="helpful-info__descr_text">
+                  Which ticket to book for a child? Where do I enter my visa
+                  details? Can I change departure dates? How to check in extra
+                  baggage? Our customer support operators know the answers to
+                  all questions about flights. We support your reservations
+                  24/7/365, in Ukrainian, Russian and English. We will always
+                  help you to choose, pay or make changes to your ticket quickly
+                  and conveniently! With the help of convenient search you can
+                  order airline tickets online cheaply and safely.
+                </div>
               </div>
-              <div class="rcmd__item rcmd__item_comp">
-                <a href="#" class="rcmd__item_name">Turkish Airlines</a>
-                <div class="rcmd__item_rate">4.7</div>
+              <div class="helpful-info__descr">
+                <h4 class="helpful-info__descr_header">
+                  Bonus program for regular customers
+                </h4>
+                <div class="helpful-info__descr_text">
+                  For buying airline tickets on our website you will receive
+                  bonuses of 1% of the transaction amount. Once you have
+                  accumulated a sufficient number of points, you can use them to
+                  pay for airline tickets for your next purchases. The maximum
+                  discount you can get thanks to the bonus program is 25%.
+                </div>
               </div>
-              <div class="rcmd__item rcmd__item_comp">
-                <a href="#" class="rcmd__item_name">Singapore Airlines</a>
-                <div class="rcmd__item_rate">4.7</div>
+              <div class="helpful-info__descr">
+                <h4 class="helpful-info__descr_header">
+                  Cheapest airline tickets
+                </h4>
+                <div class="helpful-info__descr_text">
+                  How and where to buy cheap air tickets? Cooperation with 750
+                  airlines allows us to form flexible fares and offer our
+                  customers the best conditions. Our flight aggregator site
+                  promptly processes your requests and provides all available
+                  options. You can use filters and sort offers by carrier,
+                  departure time and other parameters.
+                </div>
               </div>
-              <div class="rcmd__item rcmd__item_comp">
-                <a href="#" class="rcmd__item_name">Korean Air</a>
-                <div class="rcmd__item_rate">4.7</div>
+              <div class="helpful-info__descr">
+                <h4 class="helpful-info__descr_header">Airfare comparison</h4>
+                <div class="helpful-info__descr_text">
+                  You can always book very cheap airline tickets to Ukraine,
+                  Europe and other parts of the world with us. Our price
+                  trending system will determine the best time to buy, as well
+                  as suggest high and low season for traveling on certain
+                  routes.
+                </div>
               </div>
-              <div class="rcmd__item rcmd__item_comp">
-                <a href="#" class="rcmd__item_name">Etihad Airways</a>
-                <div class="rcmd__item_rate">4.6</div>
+            </div>
+          </div>
+          <div class="helpful-info__box box_w30">
+            <h3>Frequent questions</h3>
+            <div class="helpful-info__item item__faq">
+              <a href="#" class="faq__question">How to book a flight</a
+              ><a href="#" class="faq__question">How to pay for airfare</a
+              ><a href="#" class="faq__question">How to check-in for a flight</a
+              ><a href="#" class="faq__question"
+                >How to return an airline ticket</a
+              ><a href="#" class="faq__question">Bonus program</a
+              ><a href="#" class="faq__question">All topics</a>
+            </div>
+            <div class="helpful-info__item item__mailing">
+              <div class="mailing__descr">
+                <div class="mailing__descr_text">Best travel deals</div>
+                <img src="img/notebook.png" alt="" class="mailing__descr_img" />
               </div>
-              <div class="rcmd__item rcmd__item_comp">
-                <a href="#" class="rcmd__item_name">Cathay Pacific</a>
-                <div class="rcmd__item_rate">4.5</div>
-              </div>
-              <div class="rcmd__item rcmd__item_comp">
-                <a href="#" class="rcmd__item_name">Air Astana</a>
-                <div class="rcmd__item_rate">4.5</div>
-              </div>
-              <div class="rcmd__item rcmd__item_comp">
-                <a href="#" class="rcmd__item_name">Virgin Atlantic Airways</a>
-                <div class="rcmd__item_rate">4.5</div>
-              </div>
-              <div class="rcmd__item rcmd__item_comp">
-                <a href="#" class="rcmd__item_name">Air New Zealand</a>
-                <div class="rcmd__item_rate">4.5</div>
+              <div class="mailing__input">
+                <div class="alert">!</div>
+                <input type="mail" placeholder="Email" />
+                <button><img src="icons/arrow-right.svg" alt="send" /></button>
               </div>
             </div>
           </div>
@@ -379,6 +361,6 @@
         </div>
       </div>
     </footer>
-    <script src="js/script.js"></script>
+    <script src="js/script.js" defer></script>
   </body>
 </html>
